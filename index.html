@@ -1,912 +1,1067 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vanya Téléservices — Solutions Numériques &amp; Logiciels Sur Mesure</title>
-<meta name="description" content="Vanya Téléservices : gestion électronique des documents, logiciels sur mesure, sites web, cybersécurité et formation. 20+ ans d'expérience au service des administrations et entreprises mauritaniennes.">
-<script>document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>RAQIB — Gestion intelligente du patrimoine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,300;9..144,1,400&family=Manrope:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --navy:#0D2137;
-    --navy-deep:#081623;
-    --gold:#F9A825;
-    --gold-deep:#C97F0E;
-    --ice:#EEF4FB;
-    --white:#FFFFFF;
-    --slate:#546E7A;
-    --slate-light:#B0BEC5;
-    --blue:#1565C0;
-    --blue-2:#0288D1;
-    --green:#1B7A3E;
-    --purple:#7B1FA2;
-    --red:#C62828;
-    --font-display:'Space Grotesk',sans-serif;
-    --font-body:'Inter',sans-serif;
-    --font-mono:'IBM Plex Mono',monospace;
-    --maxw:1180px;
+  :root {
+    --green-900: #0d3b2e;
+    --green-700: #166848;
+    --green-600: #1a7a55;
+    --green-500: #22a06b;
+    --green-50:  #eef7f1;
+    --ink:       #0a1f17;
+    --ink-soft:  #4a5f55;
+    --paper:    #fbfaf6;
+    --paper-2:  #f5f2e8;
+    --line:     #e6e2d6;
+    --accent:    #c9a86a;
   }
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--font-body);
-    color:var(--navy);
-    background:var(--white);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  ul{list-style:none;}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-  h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;letter-spacing:-0.01em;}
-  .eyebrow{
-    font-family:var(--font-mono);
-    font-size:12.5px;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    font-weight:500;
-  }
-  section{position:relative;}
-  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;scroll-behavior:auto !important;}
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    overflow-x: hidden;
   }
 
-  /* ---------- reveal-on-scroll (progressive enhancement: visible by default, animated only if JS runs) ---------- */
-  .reveal{opacity:1;transform:none;}
-  html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s ease;}
-  html.js .reveal.in{opacity:1;transform:translateY(0);}
+  ::selection { background: var(--green-700); color: #fff; }
 
-  /* ---------- NAV ---------- */
-  header{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(8,22,35,0.96);
-    border-bottom:1px solid rgba(255,255,255,0.07);
-  }
-  nav{
-    max-width:var(--maxw);margin:0 auto;padding:16px 28px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .logo{
-    font-family:var(--font-display);
-    font-weight:700;
-    color:var(--white);
-    font-size:19px;
-    letter-spacing:0.02em;
-    display:flex;align-items:baseline;gap:8px;
-  }
-  .logo span{color:var(--gold);}
-  .nav-links{display:flex;gap:30px;align-items:center;}
-  .nav-links a{
-    color:rgba(255,255,255,0.78);
-    font-size:14.5px;
-    font-weight:500;
-    transition:color .2s;
-  }
-  .nav-links a:hover{color:var(--white);}
-  .nav-cta{
-    background:var(--gold);
-    color:var(--navy-deep) !important;
-    padding:9px 18px;
-    border-radius:7px;
-    font-weight:600;
-    font-size:14px;
-    display:inline-flex;align-items:center;gap:7px;
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(249,168,37,0.3);}
-  .burger{display:none;background:none;border:none;cursor:pointer;color:var(--white);padding:6px;}
-
-  @media (max-width:860px){
-    .nav-links{
-      position:fixed;top:64px;left:0;right:0;bottom:0;
-      background:var(--navy-deep);
-      flex-direction:column;justify-content:flex-start;
-      padding:36px 28px;gap:26px;
-      transform:translateX(100%);
-      transition:transform .3s ease;
-    }
-    .nav-links.open{transform:translateX(0);}
-    .nav-links a{font-size:18px;}
-    .burger{display:block;}
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
   }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    background:radial-gradient(circle at 80% 18%, #122a45 0%, var(--navy) 45%, var(--navy-deep) 100%);
-    color:var(--white);
-    padding:168px 0 96px;
-    overflow:hidden;
-  }
-  .hero .wrap{position:relative;z-index:2;}
-  .rings{
-    position:absolute;top:-120px;right:-180px;width:680px;height:680px;
-    z-index:1;pointer-events:none;
-  }
-  .rings circle{
-    fill:none;stroke:rgba(249,168,37,0.16);
-    transform-origin:340px 340px;
-  }
-  .rings circle.pulse{animation:pulse 5s ease-in-out infinite;}
-  @keyframes pulse{
-    0%,100%{opacity:0.35;transform:scale(1);}
-    50%{opacity:0.85;transform:scale(1.035);}
-  }
-  .hero-eyebrow{color:var(--gold);margin-bottom:22px;display:block;}
-  .hero h1{
-    font-size:clamp(40px,6.4vw,68px);
-    font-weight:700;
-    max-width:780px;
-    margin-bottom:22px;
-  }
-  .hero h1 em{
-    font-style:normal;color:var(--gold);
-  }
-  .hero p.lead{
-    font-size:18px;
-    color:rgba(255,255,255,0.74);
-    max-width:560px;
-    margin-bottom:38px;
-  }
-  .btn-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:72px;}
-  .btn{
-    font-weight:600;font-size:15px;
-    padding:14px 26px;border-radius:8px;
-    display:inline-flex;align-items:center;gap:9px;
-    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
-    border:1px solid transparent;
-  }
-  .btn-primary{background:var(--gold);color:var(--navy-deep);}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(249,168,37,0.28);}
-  .btn-ghost{border-color:rgba(255,255,255,0.28);color:var(--white);}
-  .btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,0.06);}
-  .btn-gold{background:var(--gold);color:var(--navy-deep);box-shadow:0 8px 18px rgba(249,168,37,0.28);}
-  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(249,168,37,0.36);}
-  .btn-line{border:1.5px solid rgba(13,33,55,0.16);color:var(--navy);}
-  .btn-line:hover{border-color:var(--navy);background:var(--white);}
-
-  .stat-row{
-    display:grid;grid-template-columns:repeat(4,auto);
-    gap:40px;border-top:1px solid rgba(255,255,255,0.12);padding-top:36px;
-    max-width:680px;
-  }
-  .stat-num{font-family:var(--font-mono);font-size:34px;font-weight:600;color:var(--gold);}
-  .stat-label{font-size:13px;color:rgba(255,255,255,0.62);margin-top:4px;}
-
-  .eco-row{display:flex;gap:16px;flex-wrap:wrap;max-width:780px;margin-top:30px;}
-  .eco-card{
-    flex:1;min-width:220px;
-    background:rgba(255,255,255,0.05);border:1px solid rgba(249,168,37,0.22);
-    border-radius:12px;padding:18px 20px;
-    display:flex;flex-direction:column;gap:3px;
-    transition:transform .18s ease, background .18s ease, border-color .18s ease;
-  }
-  .eco-card:hover{transform:translateY(-3px);background:rgba(255,255,255,0.09);border-color:var(--gold);}
-  .eco-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);}
-  .eco-name{font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--white);}
-  .eco-desc{font-size:12.5px;color:rgba(255,255,255,0.6);}
-
-  @media (max-width:600px){
-    .stat-row{grid-template-columns:repeat(2,1fr);gap:22px;}
-    .hero{padding-top:140px;}
+  /* ============ NAV ============ */
+  nav {
+    position: fixed;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(251, 250, 246, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(230, 226, 214, 0.8);
+    border-radius: 100px;
+    padding: 10px 12px 10px 24px;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    box-shadow: 0 4px 30px -10px rgba(13, 59, 46, 0.1);
   }
 
-  /* ---------- SECTION GENERIC ---------- */
-  .section{padding:96px 0;}
-  .section-ice{background:var(--ice);}
-  .section-head{max-width:640px;margin-bottom:56px;}
-  .section-head .eyebrow{color:var(--gold-deep);margin-bottom:14px;display:block;}
-  .section-head h2{font-size:clamp(28px,4vw,38px);color:var(--navy);}
-  .section-head p{color:var(--slate);font-size:16px;margin-top:14px;}
-  .section-dark .section-head .eyebrow{color:var(--gold);}
-  .section-dark .section-head h2{color:var(--white);}
-  .section-dark .section-head p{color:rgba(255,255,255,0.66);}
-
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;}
-  .about-grid p{color:var(--slate);font-size:16px;margin-bottom:16px;max-width:480px;}
-  .since-tag{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:var(--font-mono);font-size:13px;
-    background:var(--navy);color:var(--gold);
-    padding:7px 14px;border-radius:20px;margin-bottom:22px;
-  }
-  .about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .about-stat{
-    background:var(--white);border:1px solid #E2E9F0;
-    border-radius:12px;padding:26px 22px;
-  }
-  .about-stat:first-child{grid-column:1 / -1;background:var(--navy);}
-  .about-stat:first-child .stat-num{color:var(--gold);}
-  .about-stat:first-child .stat-label{color:rgba(255,255,255,0.7);}
-  .about-stat .stat-num{font-size:30px;color:var(--navy);font-family:var(--font-mono);font-weight:600;}
-  .about-stat .stat-label{font-size:13px;color:var(--slate);margin-top:4px;}
-
-  @media (max-width:480px){.about-stats{grid-template-columns:1fr 1fr;}}
-
-  @media (max-width:780px){
-    .about-grid{grid-template-columns:1fr;gap:36px;}
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
   }
 
-  /* ---------- EXPERTISE CARDS ---------- */
-  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-  .xcard{
-    background:var(--white);border:1px solid #E2E9F0;border-radius:14px;
-    padding:30px 24px;transition:transform .22s ease, box-shadow .22s ease;
-  }
-  .xcard:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(13,33,55,0.08);}
-  .icon-circle{
-    width:46px;height:46px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    margin-bottom:18px;color:var(--white);font-size:20px;
-  }
-  .icon-circle svg{width:22px;height:22px;}
-  .xcard h3{font-size:17px;margin-bottom:8px;color:var(--navy);}
-  .xcard p{font-size:14px;color:var(--slate);}
-  .xcard ul{margin-top:12px;display:flex;flex-direction:column;gap:7px;}
-  .xcard ul li{font-size:13px;color:var(--slate);display:flex;gap:7px;align-items:flex-start;}
-  .xcard ul li b{color:var(--green);flex-shrink:0;}
-
-  @media (max-width:900px){.grid-4{grid-template-columns:1fr 1fr;}}
-  @media (max-width:560px){.grid-4{grid-template-columns:1fr;}}
-
-  /* ---------- MODULES (logiciels sur mesure) ---------- */
-  .modules-wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
-  .modules-copy h2{color:var(--white);font-size:clamp(28px,4vw,40px);margin-bottom:18px;}
-  .modules-copy p{color:rgba(255,255,255,0.66);font-size:16px;max-width:420px;}
-  .module-list{
-    background:var(--navy-deep);border:1px solid rgba(255,255,255,0.08);
-    border-radius:14px;overflow:hidden;
-  }
-  .module-list .bar{
-    display:flex;gap:7px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-  .bar span{width:9px;height:9px;border-radius:50%;}
-  .bar span:nth-child(1){background:#C62828;}
-  .bar span:nth-child(2){background:#F9A825;}
-  .bar span:nth-child(3){background:#1B7A3E;}
-  .module-item{
-    display:flex;align-items:center;gap:14px;
-    padding:16px 22px;border-bottom:1px solid rgba(255,255,255,0.06);
-    font-family:var(--font-mono);font-size:14.5px;color:rgba(255,255,255,0.88);
-  }
-  .module-item:last-child{border-bottom:none;}
-  .module-item .check{
-    width:18px;height:18px;border-radius:50%;background:rgba(27,122,62,0.25);
-    color:#5FCB85;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;
+  .logo-shield {
+    width: 30px;
+    height: 35px;
+    background: var(--green-700);
+    clip-path: polygon(50% 0, 100% 20%, 100% 70%, 50% 100%, 0 70%, 0 20%);
+    display: grid;
+    place-items: center;
+    font-family: 'Amiri', serif;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
   }
 
-  @media (max-width:860px){.modules-wrap{grid-template-columns:1fr;gap:36px;}}
-
-  /* ---------- WEB & MOBILE ---------- */
-  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-  .wcard{
-    border-radius:16px;padding:36px 32px;color:var(--white);
-  }
-  .wcard.wm-web{background:linear-gradient(150deg,#1565C0,#0D2137 85%);}
-  .wcard.wm-mobile{background:linear-gradient(150deg,#7B1FA2,#0D2137 85%);}
-  .wcard h3{font-size:21px;margin-bottom:18px;}
-  .wcard li{
-    display:flex;gap:10px;font-size:14.5px;color:rgba(255,255,255,0.88);
-    padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.12);
-  }
-  .wcard li:last-child{border-bottom:none;}
-  .wcard li .arrow{color:var(--gold);font-weight:700;}
-
-  @media (max-width:780px){.grid-2{grid-template-columns:1fr;}}
-
-  /* ---------- WHY CHOOSE ---------- */
-  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .ycard{
-    background:var(--white);border:1px solid #E2E9F0;border-radius:14px;
-    padding:28px 24px;
-  }
-  .ycard h3{font-size:16.5px;margin-bottom:8px;color:var(--navy);}
-  .ycard p{font-size:14px;color:var(--slate);}
-
-  /* ---- PRODUITS ---- */
-  .prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .prod-card{
-    background:var(--white);border:1px solid #E2E9F0;border-radius:18px;
-    padding:30px 28px;transition:transform .2s ease, box-shadow .2s ease;
-  }
-  .prod-card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(13,33,55,0.08);}
-  .prod-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;}
-  .prod-logo{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:25px;color:var(--white);}
-  .prod-badge{
-    font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
-    background:rgba(27,122,62,0.1);color:var(--green);border:1px solid rgba(27,122,62,0.25);
-    padding:5px 12px;border-radius:20px;white-space:nowrap;
-  }
-  .prod-tag{
-    font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--gold-deep);margin-bottom:8px;display:block;
-  }
-  .prod-card h3{font-family:var(--font-display);font-size:23px;font-weight:700;color:var(--navy);margin-bottom:10px;}
-  .prod-desc{font-size:14px;color:var(--slate);line-height:1.65;margin-bottom:18px;}
-  .prod-price{
-    display:flex;align-items:baseline;gap:8px;margin-bottom:16px;padding:13px 16px;
-    background:var(--ice);border:1px solid #E2E9F0;border-radius:10px;
-  }
-  .prod-price .amount{font-family:var(--font-display);font-size:21px;font-weight:700;color:var(--navy);}
-  .prod-price .period{font-size:12px;color:var(--slate);}
-  .prod-includes{margin-bottom:16px;}
-  .prod-includes-label{font-size:10.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate);margin-bottom:7px;}
-  .prod-includes ul{display:flex;flex-direction:column;gap:5px;}
-  .prod-includes li{font-size:13px;color:var(--slate);display:flex;gap:7px;}
-  .prod-includes li::before{content:'✓';color:var(--green);font-weight:700;}
-  .prod-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
-  .prod-tags .ptag{
-    font-size:11.5px;padding:5px 11px;border-radius:8px;background:var(--ice);color:var(--slate);
-    font-weight:600;border:1px solid #E2E9F0;
-  }
-  .prod-actions{display:flex;gap:10px;flex-wrap:wrap;}
-  .prod-actions .btn{padding:11px 20px;font-size:13.5px;}
-  .prod-buy{
-    display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:var(--green);
-    text-decoration:underline;
-  }
-  @media (max-width:980px){.prod-grid{grid-template-columns:1fr;}}
-
-  @media (max-width:900px){.grid-3{grid-template-columns:1fr 1fr;}}
-  @media (max-width:560px){.grid-3{grid-template-columns:1fr;}}
-
-  /* ---------- VISION ---------- */
-  .vision-top{max-width:680px;margin-bottom:52px;}
-  .vision-top p{color:rgba(255,255,255,0.72);font-size:16.5px;margin-bottom:14px;}
-  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-  .pillar{
-    background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
-    border-radius:14px;padding:28px 24px;
-  }
-  .pillar .tag{
-    font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.1em;
-    padding:5px 11px;border-radius:20px;display:inline-block;margin-bottom:16px;
-    text-transform:uppercase;
-  }
-  .pillar h3{color:var(--white);font-size:18px;margin-bottom:8px;}
-  .pillar p{color:rgba(255,255,255,0.62);font-size:14px;}
-
-  @media (max-width:780px){.pillars{grid-template-columns:1fr;}}
-
-  /* ---------- REFERENCES ---------- */
-  .ref-card{
-    background:var(--white);border:1px solid #E2E9F0;border-radius:14px;
-    padding:26px 24px;display:flex;flex-direction:column;gap:4px;
-  }
-  .ref-card .ref-icon{font-size:19px;margin-bottom:6px;display:block;}
-  .ref-card h3{font-size:16px;color:var(--navy);}
-  .ref-card .sub{font-size:13px;color:var(--slate);}
-  .ref-subhead{
-    font-family:var(--font-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--slate);margin:0 0 18px;
-  }
-  .badge{
-    align-self:flex-start;
-    font-family:var(--font-mono);font-size:11.5px;
-    background:rgba(249,168,37,0.14);color:var(--gold-deep);
-    padding:5px 11px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;
+  .logo-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.02em;
   }
 
-  /* ---------- CONTACT ---------- */
-  .contact{
-    background:radial-gradient(circle at 15% 85%, #122a45 0%, var(--navy) 45%, var(--navy-deep) 100%);
-    color:var(--white);text-align:center;padding:110px 0;overflow:hidden;
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
   }
-  .contact .wrap{position:relative;z-index:2;}
-  .contact .eyebrow{color:var(--gold);margin-bottom:18px;}
-  .contact h2{font-size:clamp(30px,5vw,46px);max-width:680px;margin:0 auto 18px;}
-  .contact p.lead{color:rgba(255,255,255,0.66);font-size:16.5px;max-width:480px;margin:0 auto 40px;}
-  .contact .btn-row{justify-content:center;margin-bottom:0;}
-  .contact-details{
-    display:flex;justify-content:center;gap:28px;flex-wrap:wrap;
-    font-family:var(--font-mono);font-size:13.5px;color:rgba(255,255,255,0.7);
-    margin:34px 0 28px;
-  }
-  .contact-details a{color:rgba(255,255,255,0.7);}
-  .contact-details a:hover{color:var(--white);}
-  .slogan{
-    font-style:italic;color:rgba(255,255,255,0.5);font-size:14.5px;
-    max-width:480px;margin:0 auto 28px;
-  }
-  .contact-meta{
-    margin-top:0;display:flex;justify-content:center;gap:42px;flex-wrap:wrap;
-    font-family:var(--font-mono);font-size:14px;color:rgba(255,255,255,0.6);
-  }
-  .contact-meta a{color:var(--white);}
-  .rings2{position:absolute;bottom:-160px;left:-160px;width:560px;height:560px;z-index:1;pointer-events:none;}
-  .rings2 circle{fill:none;stroke:rgba(249,168,37,0.14);}
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--navy-deep);color:rgba(255,255,255,0.5);
-    padding:30px 0;font-size:13px;
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color 0.2s;
   }
-  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
-  footer .logo{font-size:15px;}
-  footer a:hover{color:var(--white);}
 
-  /* ---------- WHATSAPP FLOAT ---------- */
-  .wa-float{
-    position:fixed;bottom:24px;right:24px;z-index:90;
-    background:#1B7A3E;color:var(--white);
-    width:56px;height:56px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 10px 26px rgba(27,122,62,0.4);
-    transition:transform .2s ease;
+  .nav-links a:hover { color: var(--green-700); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 9px 18px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.25s;
   }
-  .wa-float:hover{transform:scale(1.08);}
-  .wa-float svg{width:28px;height:28px;}
+
+  .nav-cta:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    padding: 130px 0 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 30%, rgba(34, 160, 107, 0.07), transparent 50%),
+      radial-gradient(ellipse at 85% 70%, rgba(201, 168, 106, 0.08), transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Decorative arabic background */
+  .hero::after {
+    content: 'رقيب';
+    position: absolute;
+    top: 50%;
+    right: -80px;
+    transform: translateY(-50%);
+    font-family: 'Amiri', serif;
+    font-size: 480px;
+    color: rgba(13, 59, 46, 0.03);
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    background: var(--green-50);
+    border: 1px solid rgba(34, 160, 107, 0.15);
+    border-radius: 100px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--green-700);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s forwards;
+  }
+
+  .badge .dot {
+    width: 6px; height: 6px;
+    background: var(--green-500);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(34, 160, 107, 0.15);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(34, 160, 107, 0.15); }
+    50% { box-shadow: 0 0 0 7px rgba(34, 160, 107, 0.05); }
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 5.5vw, 78px);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-700);
+    font-weight: 300;
+  }
+
+  .hero-ar {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    direction: rtl;
+    text-align: left;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+
+  .hero p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 36px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.5s forwards;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 15px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--green-900);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -10px rgba(10, 31, 23, 0.5);
+  }
+
+  .btn-primary svg { transition: transform 0.25s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    padding: 15px 22px;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1.5px solid var(--ink);
+    transition: all 0.25s;
+  }
+
+  .btn-ghost:hover { color: var(--green-700); border-color: var(--green-700); }
+
+  /* Quick stats inline */
+  .hero-stats {
+    display: flex;
+    gap: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--green-700);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .hero-stat .label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ HERO VISUAL ============ */
+  .hero-visual {
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 1s 0.5s forwards;
+  }
+
+  .dashboard {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow:
+      0 1px 2px rgba(10, 31, 23, 0.04),
+      0 30px 60px -20px rgba(10, 31, 23, 0.18),
+      0 60px 120px -40px rgba(34, 160, 107, 0.15);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    transform: perspective(1200px) rotateY(-4deg) rotateX(2deg);
+    transition: transform 0.6s;
+  }
+
+  .dashboard:hover {
+    transform: perspective(1200px) rotateY(-2deg) rotateX(1deg);
+  }
+
+  .dash-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    background: #f7f5ee;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .dash-bar span {
+    width: 10px; height: 10px; border-radius: 50%;
+  }
+  .dash-bar span:nth-child(1) { background: #e07b6e; }
+  .dash-bar span:nth-child(2) { background: #e0bb6e; }
+  .dash-bar span:nth-child(3) { background: #7eb88e; }
+
+  .dash-body { padding: 22px; }
+
+  .dash-title {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+
+  .dash-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .stat {
+    padding: 14px;
+    background: var(--paper);
+    border-radius: 10px;
+    border: 1px solid var(--line);
+  }
+
+  .stat-label {
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 6px;
+  }
+
+  .stat-value {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 600;
+  }
+
+  .stat-trend {
+    font-size: 10.5px;
+    color: var(--green-600);
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  .dash-chart {
+    background: var(--paper);
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    padding: 14px;
+  }
+
+  .dash-chart-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+
+  .chart-svg { width: 100%; height: 90px; }
+
+  /* Floating mobile mockup */
+  .mobile-mock {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    width: 130px;
+    background: #fff;
+    border-radius: 18px;
+    border: 6px solid #1a1a1a;
+    padding: 14px 10px;
+    box-shadow: 0 20px 50px -10px rgba(10, 31, 23, 0.3);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-3deg); }
+    50% { transform: translateY(-10px) rotate(-2deg); }
+  }
+
+  .mobile-mock-title {
+    font-family: 'Fraunces', serif;
+    font-size: 10px;
+    color: var(--green-700);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .mobile-mock-num {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .mobile-mock-sub {
+    font-size: 9px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .mobile-mock-mini-chart {
+    margin-top: 8px;
+    height: 28px;
+  }
+
+  /* ============ TRUST STRIP ============ */
+  .trust {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+
+  .trust-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .trust-label {
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    flex-wrap: wrap;
+    opacity: 0.65;
+  }
+
+  .trust-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ FEATURES (compact) ============ */
+  .features {
+    padding: 100px 0 60px;
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 580px;
+    margin: 0 auto 56px;
+  }
+
+  .section-eyebrow {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--green-600);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-head h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 400;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 14px;
+  }
+
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--green-700);
+  }
+
+  .section-head p {
+    font-size: 16px;
+    color: var(--ink-soft);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .feature {
+    padding: 32px 26px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(34, 160, 107, 0.05), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.35s;
+  }
+
+  .feature:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34, 160, 107, 0.3);
+    box-shadow: 0 20px 40px -20px rgba(13, 59, 46, 0.2);
+  }
+  .feature:hover::before { opacity: 1; }
+
+  .feature-num {
+    font-family: 'Fraunces', serif;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature-icon {
+    width: 44px; height: 44px;
+    border-radius: 11px;
+    background: var(--green-50);
+    color: var(--green-700);
+    display: grid;
+    place-items: center;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .feature p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============ SECTORS (pills row) ============ */
+  .sectors {
+    padding: 60px 0 100px;
+  }
+
+  .sectors-intro {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .sectors-intro h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .sectors-intro h3 em {
+    font-style: italic;
+    color: var(--green-700);
+  }
+
+  .sectors-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .sector-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .sector-pill:hover {
+    border-color: var(--green-600);
+    background: var(--green-50);
+    transform: translateY(-2px);
+  }
+
+  .sector-pill svg {
+    width: 18px; height: 18px;
+    color: var(--green-700);
+  }
+
+  /* ============ CTA ============ */
+  .cta {
+    padding: 80px 0 100px;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--green-700), var(--green-900));
+    border-radius: 28px;
+    padding: 70px 40px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(201, 168, 106, 0.18), transparent 70%);
+  }
+
+  .cta-card::after {
+    content: 'رقيب';
+    position: absolute;
+    bottom: -50px;
+    left: -10px;
+    font-family: 'Amiri', serif;
+    font-size: 220px;
+    color: rgba(251, 250, 246, 0.05);
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .cta-card > * { position: relative; z-index: 1; }
+
+  .cta-card h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-card h2 em { font-style: italic; color: var(--accent); }
+
+  .cta-card p {
+    font-size: 16px;
+    opacity: 0.85;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+
+  .cta-card .btn-primary {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .cta-card .btn-primary:hover {
+    background: #fff;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink);
+    color: rgba(251, 250, 246, 0.7);
+    padding: 50px 0 28px;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(251, 250, 246, 0.08);
+    margin-bottom: 24px;
+  }
+
+  .footer-row .logo-text { color: var(--paper); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    color: rgba(251, 250, 246, 0.65);
+    text-decoration: none;
+    font-size: 13.5px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--paper); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12.5px;
+    color: rgba(251, 250, 246, 0.5);
+  }
+
+  .footer-contact { display: flex; gap: 20px; }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    nav { padding: 8px 8px 8px 16px; gap: 12px; }
+    .nav-links { display: none; }
+    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
+    .hero::after { font-size: 280px; right: -60px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .dashboard { transform: none; }
+    .dashboard:hover { transform: none; }
+    .mobile-mock { display: none; }
+    .hero-stats { gap: 20px; flex-wrap: wrap; }
+    .cta-card { padding: 50px 24px; }
+    .trust-row { justify-content: center; text-align: center; flex-direction: column; }
+    .trust-logos { gap: 24px; justify-content: center; }
+    .footer-row { flex-direction: column; align-items: flex-start; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <a href="#top" class="logo">VANYA <span>TÉLÉSERVICES</span></a>
-    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#produits">Produits</a>
-      <a href="#why">Pourquoi nous</a>
-      <a href="#references">Références</a>
-      <a href="#contact" class="nav-cta">WhatsApp →</a>
-    </div>
-  </nav>
-</header>
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-shield">رقيب</div>
+    <div class="logo-text">RAQIB</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#sectors">Solutions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Démo</a>
+</nav>
 
-<main id="top">
-
-  <!-- HERO -->
-  <section class="hero">
-    <svg class="rings" viewBox="0 0 680 680" aria-hidden="true">
-      <circle class="pulse" cx="340" cy="340" r="120" stroke-width="1.5"/>
-      <circle class="pulse" cx="340" cy="340" r="200" stroke-width="1.5" style="animation-delay:.8s"/>
-      <circle class="pulse" cx="340" cy="340" r="280" stroke-width="1.5" style="animation-delay:1.6s"/>
-      <circle cx="340" cy="340" r="340" stroke-width="1"/>
-    </svg>
-    <div class="wrap">
-      <span class="eyebrow hero-eyebrow">Solutions Numériques · Logiciels Sur Mesure · Transformation Digitale</span>
-      <h1 class="reveal in">Les outils numériques dont <em>vos institutions</em> ont besoin.</h1>
-      <p class="lead reveal in">Depuis 2004, Vanya Téléservices conçoit des logiciels sur mesure, des plateformes web et des solutions mobiles pour les entreprises et institutions mauritaniennes — fiables, modernes et adaptées au terrain.</p>
-      <div class="btn-row reveal in">
-        <a href="#contact" class="btn btn-primary">🚀 Demander une démonstration gratuite</a>
-        <a href="#services" class="btn btn-ghost">Voir nos services</a>
-      </div>
-      <div class="stat-row">
-        <div><div class="stat-num">20+</div><div class="stat-label">Années d'expérience</div></div>
-        <div><div class="stat-num">30+</div><div class="stat-label">Projets réalisés</div></div>
-        <div><div class="stat-num">100%</div><div class="stat-label">Solutions adaptées</div></div>
-        <div><div class="stat-num">24/7</div><div class="stat-label">Assistance technique</div></div>
-      </div>
-      <div class="eco-row reveal in">
-        <a class="eco-card" href="https://it-rim.net" target="_blank" rel="noopener">
-          <span class="eco-tag">Notre filiale</span>
-          <span class="eco-name">IT-RIM →</span>
-          <span class="eco-desc">Sites web, apps &amp; marketplaces</span>
-        </a>
-        <a class="eco-card" href="https://annonces-express.vercel.app" target="_blank" rel="noopener">
-          <span class="eco-tag">Notre marketplace</span>
-          <span class="eco-name">Annonces Express →</span>
-          <span class="eco-desc">Petites annonces gratuites</span>
-        </a>
-        <a class="eco-card" href="https://bahe1953.github.io/raqib-landing/" target="_blank" rel="noopener">
-          <span class="eco-tag">Notre produit</span>
-          <span class="eco-name">RAQIB →</span>
-          <span class="eco-desc">Gestion de patrimoine &amp; biens</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="wrap about-grid">
-      <div class="reveal">
-        <span class="since-tag">● Depuis 2004</span>
-        <h2 style="font-size:clamp(26px,3.6vw,34px);margin-bottom:18px;">Qui sommes-nous ?</h2>
-        <p>Depuis plus de 20 ans, Vanya Téléservices accompagne les administrations, institutions et entreprises dans leur modernisation grâce à des solutions informatiques performantes, sécurisées et adaptées aux réalités du terrain.</p>
-        <p>Notre mission est de simplifier la gestion de l'information, d'améliorer la productivité et de sécuriser le patrimoine documentaire de nos clients.</p>
-      </div>
-      <div class="about-stats reveal">
-        <div class="about-stat">
-          <div class="stat-num">20+</div>
-          <div class="stat-label">Ans d'expérience au service des administrations et entreprises</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="dot"></span>
+          Plateforme intelligente
         </div>
-        <div class="about-stat">
-          <div class="stat-num">30+</div>
-          <div class="stat-label">Projets réalisés</div>
+        <h1>La maîtrise totale de votre <em>patrimoine</em>.</h1>
+        <div class="hero-ar">إدارة ذكية لممتلكاتك</div>
+        <p>Une solution intelligente pour suivre, optimiser et valoriser l'ensemble de vos immobilisations — en toute transparence.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">
+            Demander une démo
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#features" class="btn-ghost">Voir la plateforme</a>
         </div>
-        <div class="about-stat">
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Solutions adaptées</div>
-        </div>
-        <div class="about-stat">
-          <div class="stat-num">24/7</div>
-          <div class="stat-label">Assistance technique</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section section-ice" id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Nos services</span>
-        <h2>Six expertises, une seule équipe</h2>
-        <p>De la gestion documentaire à la cybersécurité, chaque service est pensé pour s'intégrer aux outils déjà en place chez nos clients.</p>
-      </div>
-      <div class="grid-3 reveal">
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--blue);">📂</div>
-          <h3>Gestion Électronique des Documents</h3>
-          <ul>
-            <li><b>✓</b> Archivage &amp; numérisation des archives</li>
-            <li><b>✓</b> Indexation plein texte</li>
-            <li><b>✓</b> Recherche instantanée multicritère</li>
-          </ul>
-        </div>
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--green);">📨</div>
-          <h3>Gestion Électronique du Courrier</h3>
-          <ul>
-            <li><b>✓</b> Enregistrement automatique</li>
-            <li><b>✓</b> Circuit de validation</li>
-            <li><b>✓</b> Suivi des correspondances</li>
-          </ul>
-        </div>
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--purple);">💻</div>
-          <h3>Développement de Logiciels Sur Mesure</h3>
-          <ul>
-            <li><b>✓</b> Applications métier &amp; ERP</li>
-            <li><b>✓</b> Applications Web et Mobile</li>
-            <li><b>✓</b> Portails collaboratifs</li>
-          </ul>
-        </div>
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--gold-deep);">🌐</div>
-          <h3>Création de Sites Web Professionnels</h3>
-          <ul>
-            <li><b>✓</b> Sites institutionnels &amp; portails</li>
-            <li><b>✓</b> Plateformes e-commerce</li>
-            <li><b>✓</b> Hébergement et maintenance</li>
-          </ul>
-        </div>
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--red);">🔒</div>
-          <h3>Cybersécurité et Télécommunications</h3>
-          <ul>
-            <li><b>✓</b> VPN sécurisés &amp; réseaux privés</li>
-            <li><b>✓</b> Messagerie professionnelle</li>
-            <li><b>✓</b> Sauvegarde et continuité de service</li>
-          </ul>
-        </div>
-        <div class="xcard">
-          <div class="icon-circle" style="background:var(--blue-2);">🎓</div>
-          <h3>Formation et Assistance Technique</h3>
-          <ul>
-            <li><b>✓</b> Formation utilisateurs &amp; administrateurs</li>
-            <li><b>✓</b> Support technique</li>
-            <li><b>✓</b> Accompagnement au changement</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REALISATIONS -->
-  <section class="section" id="realisations">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--gold-deep);">Nos réalisations</span>
-        <h2><span style="color:var(--gold-deep);">30+</span> projets réalisés</h2>
-        <p>Des résultats concrets, au service de la modernisation des institutions et entreprises mauritaniennes.</p>
-      </div>
-      <div class="grid-3 reveal">
-        <div class="ycard"><h3 style="color:var(--blue);">📚 Archives numérisées</h3><p>Numérisation de millions de pages d'archives.</p></div>
-        <div class="ycard"><h3 style="color:var(--green);">📑 Procédures dématérialisées</h3><p>Dématérialisation des procédures administratives.</p></div>
-        <div class="ycard"><h3 style="color:var(--purple);">🔐 Plateformes sécurisées</h3><p>Développement de plateformes web sécurisées.</p></div>
-        <div class="ycard"><h3 style="color:var(--gold-deep);">🗄️ Solutions GED nationales</h3><p>Mise en place de solutions GED à l'échelle nationale.</p></div>
-        <div class="ycard"><h3 style="color:var(--red);">📡 Réseaux &amp; télécoms</h3><p>Déploiement de réseaux et télécommunications sécurisés.</p></div>
-        <div class="ycard"><h3 style="color:var(--blue-2);">💰 Applications financières</h3><p>Applications financières et budgétaires pour le secteur public.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUITS -->
-  <section class="section section-ice" id="produits">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Nos produits</span>
-        <h2>Des plateformes prêtes à l'emploi</h2>
-        <p>Au-delà du sur-mesure, le groupe Vanya Téléservices édite aussi ses propres logiciels — conçus et opérés par notre filiale IT-RIM.</p>
-      </div>
-      <div class="prod-grid reveal">
-
-        <div class="prod-card">
-          <div class="prod-head">
-            <div class="prod-logo" style="background:linear-gradient(135deg,#E85D26,#c2491c);">🛒</div>
-            <span class="prod-badge">● En ligne</span>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">12+</div>
+            <div class="label">Institutions clientes</div>
           </div>
-          <span class="prod-tag">Marketplace</span>
-          <h3>Annonces Express</h3>
-          <p class="prod-desc">La plateforme de référence pour acheter et vendre en Mauritanie. Gratuite, vérifiée, disponible en français et en arabe, avec une catégorie dédiée à l'humanitaire.</p>
-          <div class="prod-price"><span class="amount">Gratuit</span><span class="period">pour tous les utilisateurs</span></div>
-          <div class="prod-tags">
-            <span class="ptag">FR / AR</span>
-            <span class="ptag">8 catégories</span>
-            <span class="ptag">WhatsApp intégré</span>
+          <div class="hero-stat">
+            <div class="num">24/7</div>
+            <div class="label">Disponibilité</div>
           </div>
-          <div class="prod-actions">
-            <a href="https://annonces-express.vercel.app" target="_blank" rel="noopener" class="btn btn-gold">Visiter le site →</a>
-            <a href="https://wa.me/22243459222?text=Bonjour%2C%20je%20suis%20interess%C3%A9%20par%20Annonces%20Express" target="_blank" rel="noopener" class="btn btn-line">Demander une démo</a>
+          <div class="hero-stat">
+            <div class="num">100%</div>
+            <div class="label">Conforme & sécurisé</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual dashboard -->
+      <div class="hero-visual">
+        <div class="dashboard">
+          <div class="dash-bar"><span></span><span></span><span></span></div>
+          <div class="dash-body">
+            <div class="dash-title">Tableau de bord</div>
+            <div class="dash-stats">
+              <div class="stat">
+                <div class="stat-label">Valeur d'acq.</div>
+                <div class="stat-value">12 458</div>
+                <div class="stat-trend">MRU</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Valeur nette</div>
+                <div class="stat-value">9 842</div>
+                <div class="stat-trend">↑ 4.2%</div>
+              </div>
+              <div class="stat">
+                <div class="stat-label">Biens actifs</div>
+                <div class="stat-value">1 245</div>
+                <div class="stat-trend">↑ 6.1%</div>
+              </div>
+            </div>
+            <div class="dash-chart">
+              <div class="dash-chart-title">Évolution de la valeur nette</div>
+              <svg class="chart-svg" viewBox="0 0 400 90" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#22a06b" stop-opacity="0.35"/>
+                    <stop offset="100%" stop-color="#22a06b" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,65 L50,55 L100,60 L150,40 L200,45 L250,28 L300,32 L350,15 L400,20 L400,90 L0,90 Z" fill="url(#grad1)"/>
+                <path d="M0,65 L50,55 L100,60 L150,40 L200,45 L250,28 L300,32 L350,15 L400,20" fill="none" stroke="#1a7a55" stroke-width="2.2" stroke-linecap="round"/>
+                <circle cx="350" cy="15" r="3.5" fill="#1a7a55"/>
+                <circle cx="350" cy="15" r="7" fill="#1a7a55" opacity="0.2"/>
+              </svg>
+            </div>
           </div>
         </div>
 
-        <div class="prod-card">
-          <div class="prod-head">
-            <div class="prod-logo" style="background:linear-gradient(135deg,#0c5f43,#0f7a5e);">🛰️</div>
-            <span class="prod-badge">● En ligne</span>
-          </div>
-          <span class="prod-tag">Gestion de patrimoine</span>
-          <h3>RAQIB</h3>
-          <p class="prod-desc">Plateforme intelligente pour la gestion des biens et du patrimoine. Centralisez, suivez et sécurisez tous vos actifs en temps réel, interface bilingue arabe / français.</p>
-          <div class="prod-price"><span class="amount">Sur devis</span><span class="period">contactez-nous pour un tarif personnalisé</span></div>
-          <div class="prod-includes">
-            <div class="prod-includes-label">Inclus</div>
-            <ul><li>Installation complète</li><li>Formation de votre équipe</li></ul>
-          </div>
-          <div class="prod-tags">
-            <span class="ptag">AR / FR</span>
-            <span class="ptag">Suivi temps réel</span>
-            <span class="ptag">Codes-barres</span>
-            <span class="ptag">Rapports</span>
-          </div>
-          <div class="prod-actions">
-            <a href="https://bahe1953.github.io/raqib-landing/" target="_blank" rel="noopener" class="btn btn-gold">Présentation FR →</a>
-            <a href="https://bahe1953.github.io/raqib-ar/" target="_blank" rel="noopener" class="btn btn-line">Présentation AR →</a>
-          </div>
-          <a class="prod-buy" href="https://wa.me/22226041021?text=Bonjour%2C%20je%20souhaite%20un%20devis%20pour%20RAQIB" target="_blank" rel="noopener">Demander un devis →</a>
-        </div>
-
-        <div class="prod-card">
-          <div class="prod-head">
-            <div class="prod-logo" style="background:linear-gradient(135deg,var(--navy),var(--navy-deep));">📂</div>
-            <span class="prod-badge">● Disponible</span>
-          </div>
-          <span class="prod-tag">Gestion Électronique des Documents</span>
-          <h3>Elken@ch 2024</h3>
-          <p class="prod-desc">Le seul logiciel bilingue arabe/français de gestion documentaire du marché. Recherche Full-Text ultra-rapide, indexation simplifiée à 3 champs, utilisateurs illimités.</p>
-          <div class="prod-price"><span class="amount">Sur devis</span><span class="period">licence entreprise</span></div>
-          <div class="prod-includes">
-            <div class="prod-includes-label">Performances</div>
-            <ul><li>&lt; 2 ms pour 1 million de lignes</li><li>Centaines d'accès simultanés</li></ul>
-          </div>
-          <div class="prod-tags">
-            <span class="ptag">AR / FR</span>
-            <span class="ptag">Full-Text</span>
-            <span class="ptag">Illimité</span>
-          </div>
-          <div class="prod-actions">
-            <a href="Elkenach_2024_Premium.pptx" target="_blank" class="btn btn-gold">📄 Voir la présentation</a>
-            <a href="https://wa.me/22226041021?text=Bonjour%2C%20je%20souhaite%20une%20d%C3%A9monstration%20d%27Elken%40ch%202024" target="_blank" rel="noopener" class="btn btn-line">Demander une démo</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <section class="section section-dark" style="background:var(--navy);">
-    <div class="wrap modules-wrap">
-      <div class="modules-copy reveal">
-        <span class="eyebrow" style="color:var(--gold);">Logiciels sur mesure</span>
-        <h2>Des modules pensés pour votre gestion quotidienne</h2>
-        <p>Chaque module est développé spécifiquement pour vos besoins, et peut s'utiliser seul ou combiné aux autres.</p>
-      </div>
-      <div class="module-list reveal">
-        <div class="bar"><span></span><span></span><span></span></div>
-        <div class="module-item"><span class="check">✓</span> Archivage Numérique</div>
-        <div class="module-item"><span class="check">✓</span> Gestion des Immobilisations</div>
-        <div class="module-item"><span class="check">✓</span> Gestion de Stock &amp; Approvisionnements</div>
-        <div class="module-item"><span class="check">✓</span> Gestion de Caisse &amp; Facturation</div>
-        <div class="module-item"><span class="check">✓</span> Gestion du Patrimoine</div>
-        <div class="module-item"><span class="check">✓</span> Gestion Clients &amp; Fournisseurs</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WEB & MOBILE -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--gold-deep);">Web &amp; Mobile</span>
-        <h2>Des solutions connectées, accessibles partout</h2>
-      </div>
-      <div class="grid-2 reveal">
-        <div class="wcard wm-web">
-          <h3>Sites Web &amp; Plateformes</h3>
-          <ul>
-            <li><span class="arrow">▸</span> Sites vitrines professionnels</li>
-            <li><span class="arrow">▸</span> Portails d'annonces</li>
-            <li><span class="arrow">▸</span> Plateformes de services</li>
-            <li><span class="arrow">▸</span> Design moderne &amp; responsive</li>
-            <li><span class="arrow">▸</span> Sécurisé et rapide</li>
-          </ul>
-        </div>
-        <div class="wcard wm-mobile">
-          <h3>Solutions Mobiles</h3>
-          <ul>
-            <li><span class="arrow">▸</span> Synchronisation PC &amp; Smartphone</li>
-            <li><span class="arrow">▸</span> Gestion en temps réel</li>
-            <li><span class="arrow">▸</span> Commandes via WhatsApp</li>
-            <li><span class="arrow">▸</span> Paiements Bankily &amp; Sedad</li>
-            <li><span class="arrow">▸</span> Intégration multi-plateforme</li>
-          </ul>
+        <!-- Mobile mockup floating -->
+        <div class="mobile-mock">
+          <div class="mobile-mock-title">RAQIB</div>
+          <div class="mobile-mock-num">9 842</div>
+          <div class="mobile-mock-sub">MRU · ↑ 4.2%</div>
+          <svg class="mobile-mock-mini-chart" viewBox="0 0 100 28" preserveAspectRatio="none">
+            <path d="M0,20 L20,18 L40,12 L60,14 L80,6 L100,8" fill="none" stroke="#1a7a55" stroke-width="1.5"/>
+          </svg>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHY CHOOSE -->
-  <section class="section section-ice" id="why">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">Pourquoi nous choisir ?</span>
-        <h2>Une expertise éprouvée, un accompagnement réel</h2>
-      </div>
-      <div class="grid-3 reveal">
-        <div class="ycard"><h3 style="color:var(--gold-deep);">20+ Ans d'Expérience</h3><p>Une expertise solide au service des entreprises et institutions africaines depuis plus de deux décennies.</p></div>
-        <div class="ycard"><h3 style="color:var(--blue);">Accompagnement Personnalisé</h3><p>Chaque projet bénéficie d'un suivi sur mesure et d'une assistance technique dédiée.</p></div>
-        <div class="ycard"><h3 style="color:var(--green);">Développement Sur Mesure</h3><p>Nos solutions sont conçues spécifiquement pour répondre aux réalités et contraintes de chaque client.</p></div>
-        <div class="ycard"><h3 style="color:var(--purple);">Fiabilité &amp; Sécurité</h3><p>Des solutions stables, sécurisées, avec de nombreuses attestations de service fait.</p></div>
-        <div class="ycard"><h3 style="color:var(--red);">Adaptées au Contexte Local</h3><p>Nos outils intègrent les réalités locales : paiement mobile, langues, infrastructures disponibles.</p></div>
-        <div class="ycard"><h3 style="color:var(--gold-deep);">Partenariat Durable</h3><p>Nous construisons des relations long terme basées sur la confiance, la qualité et la réactivité.</p></div>
+<!-- TRUST -->
+<section class="trust">
+  <div class="container">
+    <div class="trust-row">
+      <div class="trust-label">Ils nous font confiance</div>
+      <div class="trust-logos">
+        <div class="trust-logo">Banque Centrale</div>
+        <div class="trust-logo">SOMELEC</div>
+        <div class="trust-logo">SMM</div>
+        <div class="trust-logo">+ 12 institutions</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- VISION -->
-  <section class="section section-dark" style="background:var(--navy-deep);">
-    <div class="wrap">
-      <div class="vision-top reveal">
-        <span class="eyebrow" style="color:var(--gold);">Notre vision</span>
-        <h2 style="color:var(--white);font-size:clamp(26px,3.8vw,36px);margin:14px 0 22px;">Accélérer la transformation numérique de la Mauritanie</h2>
-        <p>Nous croyons que l'innovation technologique constitue un levier essentiel de développement économique et social.</p>
-        <p>Notre ambition est d'offrir aux organisations publiques et privées des solutions modernes, fiables et accessibles qui améliorent leur efficacité et leur compétitivité.</p>
-      </div>
-      <div class="pillars reveal">
-        <div class="pillar">
-          <span class="tag" style="background:rgba(249,168,37,0.15);color:var(--gold);">Accessibilité</span>
-          <h3>Pour tous</h3>
-          <p>La technologie pour tous, adaptée aux réalités locales.</p>
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Fonctionnalités clés</div>
+      <h2>Tout ce qu'il vous faut, <em>réuni au même endroit</em>.</h2>
+      <p>Trois piliers pour transformer la gestion de votre patrimoine.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="feature-num">01 / Inventaire</div>
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         </div>
-        <div class="pillar">
-          <span class="tag" style="background:rgba(21,101,192,0.18);color:#6FA8E8;">Innovation</span>
-          <h3>En évolution constante</h3>
-          <p>Des outils modernes et performants en constante évolution.</p>
+        <h3>Inventaire centralisé</h3>
+        <p>Recensez et localisez tous vos biens en temps réel, avec une précision absolue.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">02 / Cycle de vie</div>
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a9 9 0 11-3-6.7L21 8M21 3v5h-5"/></svg>
         </div>
-        <div class="pillar">
-          <span class="tag" style="background:rgba(27,122,62,0.2);color:#5FCB85;">Durabilité</span>
-          <h3>Conçue pour durer</h3>
-          <p>Des solutions pérennes qui grandissent avec vos besoins.</p>
+        <h3>Suivi du cycle de vie</h3>
+        <p>De l'acquisition à la mise au rebut, gardez le contrôle à chaque étape.</p>
+      </div>
+      <div class="feature reveal">
+        <div class="feature-num">03 / Analyse</div>
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18M7 14l4-4 4 4 5-5"/></svg>
         </div>
+        <h3>Rapports & analyses</h3>
+        <p>Des tableaux de bord clairs pour prendre des décisions éclairées rapidement.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- REFERENCES -->
-  <section class="section" id="references">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow" style="color:var(--gold-deep);">Nos références</span>
-        <h2>Ils nous font confiance</h2>
-        <p>Plus de 30 projets réalisés auprès d'institutions publiques et d'entreprises privées.</p>
+<!-- SECTORS (compact pill row) -->
+<section class="sectors" id="sectors">
+  <div class="container">
+    <div class="sectors-intro reveal">
+      <h3>Une solution pour le <em>public</em> et le <em>privé</em>.</h3>
+    </div>
+    <div class="sectors-row reveal">
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11"/></svg>
+        Administrations
       </div>
-
-      <div class="ref-subhead reveal">Institutions publiques</div>
-      <div class="grid-4 reveal" style="align-items:stretch;margin-bottom:40px;">
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Direction Générale des Impôts</h3><div class="sub">Administration Fiscale</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Direction Générale du Budget</h3><div class="sub">Finances Publiques</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Trésor Public</h3><div class="sub">République Islamique de Mauritanie</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Ministère de la Défense Nationale</h3><div class="sub">Défense</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Ministère du Pétrole, des Mines et de l'Énergie</h3><div class="sub">Énergie &amp; Mines</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Port Autonome de Nouakchott</h3><div class="sub">Infrastructures Portuaires</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Inspection Générale des Finances</h3><div class="sub">Contrôle Financier</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Agence pour la Promotion des Investissements</h3><div class="sub">APIM</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>Commission de Passation des Marchés Publics</h3><div class="sub">Marchés Publics</div></div>
-        <div class="ref-card"><span class="ref-icon">🏛</span><h3>TAAZOUR</h3><div class="sub">Programme National</div></div>
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>
+        Banque & Finance
       </div>
-
-      <div class="ref-subhead reveal">Entreprises privées</div>
-      <div class="grid-3 reveal" style="align-items:stretch;">
-        <div class="ref-card"><span class="ref-icon">🏢</span><h3>Egis International</h3><div class="sub">Ingénierie &amp; Conseil</div></div>
-        <div class="ref-card"><span class="ref-icon">🏢</span><h3>Holden Holding</h3><div class="sub">Groupe Privé</div></div>
-        <div class="ref-card"><span class="ref-icon">🏢</span><h3>Istithmar West Africa</h3><div class="sub">Investissement</div></div>
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 20h20M4 20V8l8-4 8 4v12"/></svg>
+        Industrie & Énergie
+      </div>
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Santé
+      </div>
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L2 9l10 6 10-6-10-6zM2 15l10 6 10-6"/></svg>
+        Éducation
+      </div>
+      <div class="sector-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg>
+        Autres secteurs
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <svg class="rings2" viewBox="0 0 560 560" aria-hidden="true">
-      <circle cx="280" cy="280" r="100" stroke-width="1.5"/>
-      <circle cx="280" cy="280" r="180" stroke-width="1.5"/>
-      <circle cx="280" cy="280" r="260" stroke-width="1"/>
-    </svg>
-    <div class="wrap">
-      <span class="eyebrow">Contactez-nous</span>
-      <h2>Parlons de votre projet.</h2>
-      <p class="lead">Votre transformation digitale commence ici. Décrivons ensemble vos besoins.</p>
-      <div class="btn-row">
-        <a href="https://wa.me/22226041021" target="_blank" rel="noopener" class="btn btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.36A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.29 1.2-1.78 1.27-.46.07-1.03.1-1.66-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.99-.13-.18-1.08-1.44-1.08-2.75s.68-1.94.92-2.2c.24-.27.53-.33.7-.33h.5c.16 0 .38-.06.59.45.22.53.74 1.83.8 1.96.07.13.11.29.02.46-.32.62-.66.93-.93 1.21-.13.13-.27.27-.11.54.6 1 1.21 1.59 2.13 2.13.66.39 1.04.55 1.21.62.18.07.29.06.4-.04.13-.13.55-.62.7-.83.15-.21.3-.18.5-.11.2.07 1.27.6 1.49.71.22.11.36.16.41.25.06.1.06.55-.16 1.17z"/></svg>
-          WhatsApp : 26 04 10 21
-        </a>
-        <a href="mailto:dgvanya@gmail.com" class="btn btn-ghost">✉️ dgvanya@gmail.com</a>
-      </div>
-      <div class="contact-details">
-        <a href="tel:+2223633718">📞 +222 3633718</a>
-        <a href="tel:+22236617222">📱 +222 36 61 72 22</a>
-        <a href="tel:+22248002566">📱 +222 48 00 25 66</a>
-      </div>
-      <p class="slogan">« Votre vision, notre technologie. Ensemble vers l'excellence numérique. »</p>
-      <div class="contact-meta">
-        <span>📍 Nouakchott, Mauritanie</span>
-        <span>Depuis 2004</span>
-      </div>
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2>Prêt à transformer la gestion de votre <em>patrimoine</em>&nbsp;?</h2>
+      <p>Nos experts vous accompagnent. Réponse garantie sous 24 heures.</p>
+      <a href="mailto:contact@raqib.mr" class="btn-primary">
+        Demander une démo
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-</main>
-
-<a href="https://wa.me/22226041021" target="_blank" rel="noopener" class="wa-float" aria-label="Contacter sur WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.36A9.94 9.94 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm5.2 14.2c-.22.62-1.29 1.2-1.78 1.27-.46.07-1.03.1-1.66-.1-.38-.12-.87-.28-1.5-.55-2.64-1.14-4.36-3.8-4.5-3.99-.13-.18-1.08-1.44-1.08-2.75s.68-1.94.92-2.2c.24-.27.53-.33.7-.33h.5c.16 0 .38-.06.59.45.22.53.74 1.83.8 1.96.07.13.11.29.02.46-.32.62-.66.93-.93 1.21-.13.13-.27.27-.11.54.6 1 1.21 1.59 2.13 2.13.66.39 1.04.55 1.21.62.18.07.29.06.4-.04.13-.13.55-.62.7-.83.15-.21.3-.18.5-.11.2.07 1.27.6 1.49.71.22.11.36.16.41.25.06.1.06.55-.16 1.17z"/></svg>
-</a>
-
+<!-- FOOTER -->
 <footer>
-  <div class="wrap">
-    <span class="logo">VANYA <span style="color:var(--gold);">TÉLÉSERVICES</span></span>
-    <span>© 2026 Vanya Téléservices — Tous droits réservés.</span>
+  <div class="container">
+    <div class="footer-row">
+      <a href="#" class="logo">
+        <div class="logo-shield">رقيب</div>
+        <div class="logo-text">RAQIB</div>
+      </a>
+      <ul class="footer-links">
+        <li><a href="#features">Fonctionnalités</a></li>
+        <li><a href="#sectors">Solutions</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">À propos</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 RAQIB. Tous droits réservés.</div>
+      <div class="footer-contact">
+        <span>contact@raqib.mr</span>
+        <span>+222 45 25 15 15</span>
+        <span>Nouakchott, MR</span>
+      </div>
+    </div>
   </div>
 </footer>
 
 <script>
-  // mobile nav toggle
-  const burger = document.getElementById('burger');
-  const navLinks = document.getElementById('navLinks');
-  burger.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    burger.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  }));
-
-  // scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        obs.unobserve(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => obs.observe(el));
-  // safety net: ensure everything is visible even if observer misbehaves
-  setTimeout(() => reveals.forEach(el => el.classList.add('in')), 4000);
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 
 </body>
